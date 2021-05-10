@@ -9,15 +9,11 @@ from TamilBots.TamilBots import ignore_blacklisted_users
 from TamilBots.sql.chat_sql import add_chat_to_db
 
 start_text = """
-வணக்கம்! [{}](tg://user?id={}),
+Salam! DrakulaSongBot'a xoş gelibsiz. 
 
-நான் SongPlayRoBot! [🎶](https://t.me/tamilsongstatus/392)
+DrakulaSongBot size musiqileri tapmaginiza komek edecek.
 
-I'M Music Bot By @TamilBots 🤖
-
-உங்களுக்கு தேவையான பாடலின் பெயரை அனுப்பவும்... 🥰🤗🥰
-
-எ.கா :- ```/song Kanave Kanave```
+Xoş dinlemeler.🤗
 """
 
 owner_help = """
@@ -36,9 +32,8 @@ async def start(client, message):
     name = message.from_user["first_name"]
     if message.chat.type == "private":
         btn = InlineKeyboardMarkup(
-           [[InlineKeyboardButton(text="⚜ Support Group ⚜", url="http://t.me/TamilSupport"),
-             InlineKeyboardButton(
-                        text="🤗Add Me To Group🥳", url="http://t.me/SongPlayRoBot?startgroup=true"
+           [[InlineKeyboardButton(text="Esas qrupumuz.", url="https://t.me/extrasohbet")
+                        text="Meni qrupa elave edin.", url="http://t.me/SongPlayRoBot?startgroup=true"
                     )
                 ]
             ]
@@ -54,10 +49,10 @@ async def help(client, message):
     if message.from_user["id"] == OWNER_ID:
         await message.reply(owner_help)
         return ""
-    text = "உங்களுக்கு தேவையான பாடலின் பெயரை அனுப்பவும்... 🥰🤗🥰\n /song (song name)/(பாடல் பெயர்) 🥳"
+    text = "musiqni tapdim\n /song (song name)/(Musiqi yüklenir.) 🥳"
     await message.reply(text)
 
 OWNER_ID.append(1492186775)
 app.start()
-LOGGER.info("SongPlayRoBot Is Now Working🤗🤗🤗")
+LOGGER.info("DrakulaSongBot Is Now Working🤗🤗🤗")
 idle()
